@@ -11,8 +11,6 @@ router.get("/", async (req, res) => {
         const data = JSON.parse(body);
         res.json(data);
         console.log(body);
-        const dogImageUrl = data[0].url;
-        console.log(dogImageUrl);
       }
     }
   );
