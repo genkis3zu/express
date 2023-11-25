@@ -5,15 +5,14 @@ const request = require("request");
 
 router.get("/", async (req, res) => {
   request(
-    "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example",
+    "https://dog.ceo/api/breeds/image/random",
     function (error, response, body) {
       if (!error && response.statusCode == 200) {
-        const data = body;
-        // resjson(data);
-        res.render("qrcode", { title: "QR Code Express!" });
+        const data = JSON.parse(body);
+        res.json(data);
         console.log(body);
-        const qrImageUrl = data[0].url;
-        console.log(qrImageUrl);
+        const dogImageUrl = data[0].url;
+        console.log(dogImageUrl);
       }
     }
   );
